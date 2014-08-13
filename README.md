@@ -1,7 +1,7 @@
 login-box
 ================
 
-See the [component page](http://polymerlabs.github.io/login-box) for more information.
+See the [component page](http://adracus.github.io/login-box) for more information.
 
 ## Getting Started
 
