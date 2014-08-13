@@ -1,0 +1,86 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../paper-input/paper-input.html">
+<link rel="import" href="../paper-button/paper-button.html">
+
+<!--
+This element can be used for general purpose login boxes (identification
+and password).
+
+##### Example
+
+    <login-box></login-box>
+
+@element login-box
+@blurb Login box
+@status alpha
+@homepage http://polymerlabs.github.io/login-box
+-->
+<polymer-element name="login-box" attributes="heading identification">
+
+  <template>
+
+    <link rel="stylesheet" href="login-box.css" />
+    <h2>{{heading}}</h2>
+    <paper-input id="idInput" value="{{idValue}}" label="{{identification}}"></paper-input>
+    <paper-input id="pwInput" value="{{pwValue}}" label="Password" type="password"></paper-input>
+    <paper-button label="{{heading}}" raisedButton on-click="{{validate}}"></paper-button>
+
+  </template>
+
+  <script>
+
+    Polymer('login-box', {
+      /**
+       * The `heading` attribute sets an initial heading
+       * 
+       * @attribute heading
+       * @type string
+       * @default 'Login'
+       */
+      heading: 'Login',
+
+      /**
+       * The `identification` attribute sets an initial identification.
+       * 
+       * @attribute identification
+       * @type string
+       * @default 'Username'
+       */
+      identification: 'Username',
+      idValue: "",
+      pwValue: "",
+
+      validate: function() {
+        this.$.idInput.invalid = !!!this.idValue;
+        this.$.pwInput.invalid = !!!this.pwValue;
+        if (!this.pwValue || !this.idValue) return;
+        this.fireLoginTry();
+      },
+
+      /**
+       * The `login-box-login-try` event is fired whenever we
+       * call fireLoginTry
+       * 
+       * @event login-box-login-try
+       * @param {Object} detail
+       *   @param {string} detail.idValue The identification value (e.g. username)
+       *   @param {string} detail.pwValue The password value
+       */
+
+      /**
+       * The `fireLoginTry` method will fire the login try event.
+       * 
+       * @method fireLoginTry
+       */
+      fireLoginTry: function() {
+        this.fire('login-box-login-try', {
+          idValue: this.idValue,
+          pwValue: this.pwValue
+        });
+      }
+
+    });
+
+  </script>
+
+</polymer-element>
