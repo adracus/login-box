@@ -1,0 +1,6 @@
+{
+  "directory": "../",
+  "proxy": "http://proxy:8080",
+  "https-proxy": "http://proxy:8080",
+  "strict-ssl": false
+}
