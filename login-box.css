@@ -15,10 +15,14 @@
   width: 90%;
 }
 
-:host > paper-button {
+content[select="[top]"]::content img.radial {
+  border-radius: 50%;
+}
+
+#submitbutton {
   margin-top: 10px;
   width: 90%;
-  background: #4059a9 !important;
+  background: #4059a9;
   color: white;
 }
 

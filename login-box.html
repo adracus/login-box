@@ -21,9 +21,13 @@ and password).
 
     <link rel="stylesheet" href="login-box.css" />
     <h2>{{heading}}</h2>
+    <content select="[top]"></content>
+    <content select="[idHeading]"></content>
     <paper-input id="idInput" value="{{idValue}}" label="{{identification}}"></paper-input>
+    <content select="[pwHeading]"></content>
     <paper-input id="pwInput" value="{{pwValue}}" label="Password" type="password"></paper-input>
-    <paper-button label="{{heading}}" raisedButton on-click="{{validate}}"></paper-button>
+    <paper-button label="{{heading}}" id="submitbutton" raisedButton on-click="{{validate}}"></paper-button>
+    <content select="[bottom]"></content>
 
   </template>
 
