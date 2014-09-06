@@ -12,6 +12,8 @@
 }
 
 :host > paper-input {
+  margin-left: auto;
+  margin-right: auto;
   width: 90%;
 }
 

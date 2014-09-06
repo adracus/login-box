@@ -18,7 +18,6 @@ and password).
 <polymer-element name="login-box" attributes="heading identification">
 
   <template>
-
     <link rel="stylesheet" href="login-box.css" />
     <h2>{{heading}}</h2>
     <content select="[top]"></content>
@@ -28,7 +27,6 @@ and password).
     <paper-input id="pwInput" value="{{pwValue}}" label="Password" type="password"></paper-input>
     <paper-button label="{{heading}}" id="submitbutton" raisedButton on-click="{{validate}}"></paper-button>
     <content select="[bottom]"></content>
-
   </template>
 
   <script>
