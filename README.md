@@ -23,5 +23,5 @@ and you're good to go!
 
 The element only fires its `login-box-login-try` event, if both
 the identification value and password value are filled. In the event detail,
-there is a field `idValue` and a field `pwValue`, both should be quite self-
+there is a field `identifier` and a field `password`, both should be quite self-
 explanatory.
