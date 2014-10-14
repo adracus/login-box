@@ -18,14 +18,15 @@ and password).
 <polymer-element name="login-box" attributes="heading identification">
 
   <template>
+    <script type="text/javascript" src="web-animations.js"></script>
     <link rel="stylesheet" href="login-box.css" />
     <h2>{{heading}}</h2>
     <content select="[top]"></content>
-    <content select="[idHeading]"></content>
-    <paper-input id="idInput" value="{{idValue}}" label="{{identification}}"></paper-input>
-    <content select="[pwHeading]"></content>
-    <paper-input id="pwInput" value="{{pwValue}}" label="Password" type="password"></paper-input>
-    <paper-button label="{{heading}}" id="submitbutton" raisedButton on-click="{{validate}}"></paper-button>
+    <content select="[identifierHeading]"></content>
+    <paper-input id="identifierInput" value="{{identifier}}" label="{{identification}}"></paper-input>
+    <content select="[passwordHeading]"></content>
+    <paper-input id="passwordInput" value="{{password}}" label="Password" type="password"></paper-input>
+    <paper-button id="submitbutton" raised on-click="{{validate}}">{{submit}}</paper-button>
     <content select="[bottom]"></content>
   </template>
 
@@ -42,6 +43,15 @@ and password).
       heading: 'Login',
 
       /**
+       * The `submit` attribute sets an initial submit
+       * 
+       * @attribute submit
+       * @type string
+       * @default 'Login'
+       */
+      submit: 'Login',
+
+      /**
        * The `identification` attribute sets an initial identification.
        * 
        * @attribute identification
@@ -49,14 +59,45 @@ and password).
        * @default 'Username'
        */
       identification: 'Username',
-      idValue: "",
-      pwValue: "",
+
+      /**
+       * The `identifier` attribute sets an initial identifier.
+       * 
+       * @attribute identifier
+       * @type string
+       * @default ''
+       */
+      identifier: "",
+
+      /**
+       * The `password` attribute sets an initial password.
+       * 
+       * @attribute password
+       * @type string
+       * @default ''
+       */      
+      password: "",
 
       validate: function() {
-        this.$.idInput.invalid = !!!this.idValue;
-        this.$.pwInput.invalid = !!!this.pwValue;
-        if (!this.pwValue || !this.idValue) return;
+        this.$.identifierInput.invalid = !!!this.identifier;
+        this.$.passwordInput.invalid = !!!this.password;
+        if (!this.password || !this.password) return this.shake();
         this.fireLoginTry();
+      },
+
+      /**
+       * The `shake` method will shake this element (negative behaviour).
+       * 
+       * @method shake
+       */
+      shake: function() {
+        var animation = new Animation(this, [
+            {transform: "translateX(-10px)"},
+            {transform: "translateX(10px)"}
+          ], {
+            direction: "alternate", duration: 50, iterations: 3
+          });
+        document.timeline.play(animation);
       },
 
       /**
@@ -65,8 +106,8 @@ and password).
        * 
        * @event login-box-login-try
        * @param {Object} detail
-       *   @param {string} detail.idValue The identification value (e.g. username)
-       *   @param {string} detail.pwValue The password value
+       *   @param {string} detail.identifier The identifying value (e.g. username)
+       *   @param {string} detail.password The password value
        */
 
       /**
@@ -76,8 +117,8 @@ and password).
        */
       fireLoginTry: function() {
         this.fire('login-box-login-try', {
-          idValue: this.idValue,
-          pwValue: this.pwValue
+          identifier: this.identifier,
+          password: this.password
         });
       }
 

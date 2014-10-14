@@ -11,10 +11,14 @@
   text-align: center;
 }
 
-:host > paper-input {
+:host paper-input{
   margin-left: auto;
   margin-right: auto;
   width: 90%;
+}
+
+:host paper-input::shadow > #input {
+  text-align: center;
 }
 
 content[select="[top]"]::content img.radial {
