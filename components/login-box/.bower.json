@@ -1,0 +1,30 @@
+{
+  "name": "login-box",
+  "authors": [
+    "Axel Christ <adracus@gmail.com>"
+  ],
+  "description": "Login box for general purpose",
+  "keywords": "login, polymer, web-components",
+  "main": "login-box.html",
+  "license": "MIT",
+  "homepage": "https://github.com/Adracus/login-box/",
+  "ignore": [
+    "**/.*"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.4.x",
+    "polymer-test-tools": "Polymer/polymer-test-tools#~0.4.x",
+    "paper-input": "Polymer/paper-input#~0.4.x",
+    "paper-button": "Polymer/paper-button#~0.4.x"
+  },
+  "_release": "d2f7dc4824",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "d2f7dc4824d37a5d1fc8380b9aa01e423e746c44"
+  },
+  "_source": "git://github.com/Adracus/login-box.git",
+  "_target": "master",
+  "_originalSource": "Adracus/login-box",
+  "_direct": true
+}

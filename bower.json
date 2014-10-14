@@ -1,0 +1,7 @@
+{
+  "name": "login-box#gh-pages",
+  "private": true,
+  "dependencies": {
+    "login-box": "Adracus/login-box#master"
+  }
+}
