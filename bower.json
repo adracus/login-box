@@ -13,9 +13,9 @@
     "**/.*"
   ],
   "dependencies": {
-    "polymer": "Polymer/polymer#~0.4.x",
-    "polymer-test-tools": "Polymer/polymer-test-tools#~0.4.x",
-    "paper-input": "Polymer/paper-input#~0.4.x",
-    "paper-button": "Polymer/paper-button#~0.4.x"
+    "polymer": "Polymer/polymer#~0.5.x",
+    "polymer-test-tools": "Polymer/polymer-test-tools#~0.5.x",
+    "paper-input": "Polymer/paper-input#~0.5.x",
+    "paper-button": "Polymer/paper-button#~0.5.x"
   }
 }
