@@ -15,7 +15,7 @@ and password).
 @status alpha
 @homepage http://polymerlabs.github.io/login-box
 -->
-<polymer-element name="login-box" attributes="heading identification">
+<polymer-element name="login-box" attributes="heading identification hideIdInput">
 
   <template>
     <script type="text/javascript" src="web-animations.js"></script>
@@ -23,8 +23,8 @@ and password).
     <h2>{{heading}}</h2>
     <content select="[top]"></content>
     <content select="[identifierHeading]"></content>
-    <paper-input-decorator floatingLabel label="{{identification}}">
-     <input is="core-input" id="identifierInput" value="{{identifier}}" placeholder="{{identification}}"></paper-input>
+    <paper-input-decorator floatingLabel label="{{identification}}" hidden?="{{hideIdInput==true}}">
+     <input is="core-input" id="identifierInput" value="{{identifier}}" placeholder="{{identification}}" hidden?="{{hideIdInput==true}}"></paper-input>
     </paper-input-decorator>
     <content select="[passwordHeading]"></content>
     <paper-input-decorator floatingLabel label="Password">
@@ -37,6 +37,8 @@ and password).
   <script>
 
     Polymer('login-box', {
+
+      hideIdInput:false,
       /**
        * The `heading` attribute sets an initial heading
        * 
