@@ -13,7 +13,7 @@ and password).
 @element login-box
 @blurb Login box
 @status alpha
-@homepage https://github.com/Adracus/login-box
+@homepage http://polymerlabs.github.io/login-box
 -->
 <polymer-element name="login-box" attributes="heading identification">
 
@@ -23,9 +23,13 @@ and password).
     <h2>{{heading}}</h2>
     <content select="[top]"></content>
     <content select="[identifierHeading]"></content>
-    <paper-input id="identifierInput" value="{{identifier}}" label="{{identification}}"></paper-input>
+    <paper-input-decorator floatingLabel label="{{identification}}">
+     <input is="core-input" id="identifierInput" value="{{identifier}}" placeholder="{{identification}}"></paper-input>
+    </paper-input-decorator>
     <content select="[passwordHeading]"></content>
-    <paper-input id="passwordInput" value="{{password}}" label="Password" type="password"></paper-input>
+    <paper-input-decorator floatingLabel label="Password">
+      <input is="core-input" id="passwordInput" value="{{password}}" placeholder="Password" type="password">
+    </paper-input-decorator>
     <paper-button id="submitbutton" raised on-click="{{validate}}">{{submit}}</paper-button>
     <content select="[bottom]"></content>
   </template>
