@@ -1,5 +1,5 @@
 {
-  "name": "login-box",
+  "name": "jay-login-box",
   "version": "0.1.0",
   "authors": [
     "Axel Christ <adracus@gmail.com>"
@@ -8,7 +8,7 @@
   "keywords": "login, polymer, web-components",
   "main": "login-box.html",
   "license": "MIT",
-  "homepage": "https://github.com/Adracus/login-box/",
+  "homepage": "https://github.com/JaySunSyn/login-box/",
   "ignore": [
     "**/.*"
   ],
